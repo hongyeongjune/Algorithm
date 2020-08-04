@@ -17,6 +17,10 @@ public class Main {
         }
     }
 
+    private void addEdge(int v, int w) {
+        adjacency[v].add(w);
+    }
+
     public static void main(String[] args) {
         Main main = new Main(7);
         boolean[] visited = new boolean[8];
@@ -30,10 +34,6 @@ public class Main {
         main.addEdge(3,7);
 
         main.dfs(1, visited);
-    }
-
-    private void addEdge(int v, int w) {
-        adjacency[v].add(w);
     }
 
     private void dfs(int v, boolean visited[]) {
