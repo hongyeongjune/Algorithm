@@ -7,24 +7,26 @@ import java.util.Queue;
 
 public class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = {};
-
-        int[] days = new int[progresses.length];
-
+        Queue<Integer> queue = new LinkedList<>();
         List<Integer> answers = new ArrayList<>();
 
         for(int i=0; i<progresses.length; i++) {
+            int date = (int) Math.ceil((100-progresses[i])/(double)speeds[i]);
 
-            int count = 0;
-
-            while(progresses[i] < 100) {
-                progresses[i] += speeds[i];
-                count++;
+            while(!queue.isEmpty() && queue.peek() < date) {
+                answers.add(queue.size());
+                queue.clear();
             }
 
-            days[i] = count;
+            queue.offer(date);
         }
 
+        answers.add(queue.size());
+
+        int[] answer = new int[answers.size()];
+        for(int i=0; i<answer.length; i++) {
+            answer[i] = answers.get(i);
+        }
 
 
         return answer;
