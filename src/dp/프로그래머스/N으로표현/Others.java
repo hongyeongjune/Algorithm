@@ -18,13 +18,13 @@ public class Others {
             }
             return;
         }
-        int nn=0;
+        int nn = 0;
         for (int i = 0; i < 8; i++) {
-            nn=nn*10+n;
-            dfs(n, pos + 1+i, num + nn, number, s + "+");
-            dfs(n, pos + 1+i, num - nn, number, s + "-");
-            dfs(n, pos + 1+i, num * nn, number, s + "*");
-            dfs(n, pos + 1+i, num / nn, number, s + "/");
+            nn = nn * 10 + n;
+            dfs(n, pos + 1 + i, num + nn, number, s + "+");
+            dfs(n, pos + 1 + i, num - nn, number, s + "-");
+            dfs(n, pos + 1 + i, num * nn, number, s + "*");
+            dfs(n, pos + 1 + i, num / nn, number, s + "/");
         }
         // dfs(n,pos+1,num*10+n,number,s+"5");
     }
