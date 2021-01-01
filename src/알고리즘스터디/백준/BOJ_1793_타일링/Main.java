@@ -1,4 +1,4 @@
-package 백준.BOJ_1793_타일링;
+package 알고리즘스터디.백준.BOJ_1793_타일링;
 
 import java.math.BigInteger;
 import java.util.Scanner;

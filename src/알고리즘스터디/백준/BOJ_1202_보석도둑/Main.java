@@ -1,4 +1,4 @@
-package 백준.BOJ_1202_보석도둑;
+package 알고리즘스터디.백준.BOJ_1202_보석도둑;
 
 import java.io.*;
 import java.util.*;

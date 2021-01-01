@@ -1,4 +1,4 @@
-package 백준.BOJ_2920_음계;
+package 알고리즘스터디.백준.BOJ_2920_음계;
 
 import java.io.*;
 import java.util.StringTokenizer;

@@ -1,4 +1,4 @@
-package 백준.BOJ_2798_블랙잭;
+package 알고리즘스터디.백준.BOJ_2798_블랙잭;
 
 import java.io.*;
 import java.util.ArrayList;
