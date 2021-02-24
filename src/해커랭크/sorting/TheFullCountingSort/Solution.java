@@ -1,12 +1,7 @@
-package 해커링크.sorting.TheFullCountingSort;
+package 해커랭크.sorting.TheFullCountingSort;
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
 public class Solution {
 

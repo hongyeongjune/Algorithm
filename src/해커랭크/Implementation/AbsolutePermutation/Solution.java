@@ -1,4 +1,4 @@
-package 해커링크.Implementation.AbsolutePermutation;
+package 해커랭크.Implementation.AbsolutePermutation;
 
 import java.io.*;
 import java.util.*;
