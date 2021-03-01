@@ -27,8 +27,4 @@ public class Solution {
 
         return false;
     }
-
-    public static void main(String[] args) {
-        wordBreak("catsandog", Arrays.asList("cats", "dog", "sand", "and", "cat"));
-    }
 }
