@@ -1,4 +1,4 @@
-package 해커랭크.Implementation.ExtraLongFactorials;
+package 해커랭크.ExtraLongFactorials;
 
 import java.math.BigInteger;
 import java.util.Scanner;

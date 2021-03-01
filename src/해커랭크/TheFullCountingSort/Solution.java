@@ -1,4 +1,4 @@
-package 해커랭크.sorting.TheFullCountingSort;
+package 해커랭크.TheFullCountingSort;
 
 import java.io.*;
 import java.util.*;

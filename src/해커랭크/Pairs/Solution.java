@@ -1,4 +1,4 @@
-package 해커랭크.search.Pairs;
+package 해커랭크.Pairs;
 
 import java.io.*;
 import java.util.*;

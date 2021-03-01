@@ -1,4 +1,4 @@
-package 해커랭크.sorting.FradulentActivityNotifications;
+package 해커랭크.FradulentActivityNotifications;
 
 import java.io.*;
 import java.util.*;

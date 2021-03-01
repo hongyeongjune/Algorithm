@@ -1,4 +1,4 @@
-package 해커랭크.search.GridlandMetro;
+package 해커랭크.GridlandMetro;
 
 import java.util.HashMap;
 import java.util.Map;

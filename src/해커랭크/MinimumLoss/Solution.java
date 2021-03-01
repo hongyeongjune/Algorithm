@@ -1,4 +1,4 @@
-package 해커랭크.search.MinimumLoss;
+package 해커랭크.MinimumLoss;
 
 import java.io.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package 해커랭크.Implementation.ClimbingTheLeaderboard;
+package 해커랭크.ClimbingTheLeaderboard;
 
 import java.util.*;
 
