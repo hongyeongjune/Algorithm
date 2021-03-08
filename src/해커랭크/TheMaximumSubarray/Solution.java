@@ -13,7 +13,29 @@ public class Solution {
     // Complete the maxSubarray function below.
     static int[] maxSubarray(int[] arr) {
 
-        return null;
+        int[] dp = new int[arr.length + 1];
+        int[] answer = new int[2];
+
+        dp[0] = arr[0];
+        answer[0] = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]);
+            answer[0] = Math.max(answer[0], dp[i]);
+        }
+
+        int negative = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] >= 0) answer[1] += arr[i];
+            else negative++;
+        }
+
+        if (negative == arr.length) {
+            Arrays.sort(arr);
+            answer[1] = arr[arr.length - 1];
+        }
+
+        return answer;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
