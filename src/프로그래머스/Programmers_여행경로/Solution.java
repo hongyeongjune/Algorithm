@@ -1,50 +1,43 @@
 package 프로그래머스.Programmers_여행경로;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Solution {
-    public class AirPort {
-        private String arrive;
-        private boolean visited;
 
-        public AirPort(String arrive) {
-            this.arrive = arrive;
-            this.visited = false;
+    public String[] solution(String[][] tickets) {
+        boolean[] visited = new boolean[tickets.length + 1];
+        List<String> answer = new ArrayList<>();
+        dfs(tickets, "ICN", 0, visited, "ICN", answer);
+        Collections.sort(answer);
+        return answer.get(0).split(" ");
+    }
+
+    private void dfs(String[][] tickets, String present, int index, boolean[] visited, String result, List<String> answer) {
+
+        if (index == tickets.length) {
+            answer.add(result);
+            return;
+        }
+
+        for (int i = 0; i < tickets.length; i++) {
+            if (!visited[i] && tickets[i][0].equals(present)) {
+                visited[i] = true;
+                dfs(tickets, tickets[i][1], index + 1, visited, result + " " + tickets[i][1], answer);
+                visited[i] = false;
+            }
         }
     }
 
-    public String[] solution(String[][] tickets) {
-        String[] answer = new String[tickets.length + 1];
-        HashMap<String, List<AirPort>> hashMap = new HashMap<>();
-        for (String[] ticket : tickets) {
-            if (hashMap.get(ticket[0]) == null) {
-                List<AirPort> airPorts = new ArrayList<>();
-                airPorts.add(new AirPort(ticket[1]));
-                hashMap.put(ticket[0], airPorts);
-            } else {
-                List<AirPort> airPorts = hashMap.get(ticket[0]);
-                airPorts.add(new AirPort(ticket[1]));
-                Collections.sort(airPorts, new Comparator<AirPort>() {
-                    @Override
-                    public int compare(AirPort o1, AirPort o2) {
-                        return o1.arrive.compareTo(o2.arrive);
-                    }
-                });
-                hashMap.put(ticket[0], airPorts);
-            }
-        }
-        answer[0] = "ICN";
-        for (int i = 1; i < answer.length; i++) {
-
-            for (int j = 0; j < hashMap.get(answer[i - 1]).size(); j++) {
-                if (!hashMap.get(answer[i - 1]).get(j).visited) {
-                    hashMap.get(answer[i - 1]).get(j).visited = true;
-                    answer[i] = hashMap.get(answer[i - 1]).get(j).arrive;
-                    break;
-                }
-            }
-
-        }
-        return answer;
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        solution.solution(new String[][]{
+                {"ICN", "SFO"},
+                {"ICN", "ATL"},
+                {"SFO", "ATL"},
+                {"ATL", "ICN"},
+                {"ATL", "SFO"}
+        });
     }
 }
