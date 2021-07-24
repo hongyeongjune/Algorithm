@@ -1,7 +1,5 @@
 package 리트코드.LeetCode_1685_SumOfAbsoluteDifferencesInASortedArray;
 
-import java.util.List;
-
 public class Solution {
     public int[] getSumAbsoluteDifferences(int[] nums) {
         int[] answer = new int[nums.length];
