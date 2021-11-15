@@ -10,45 +10,40 @@ public class Solution_다시시도 {
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
 
-        List<Character> list1 = new ArrayList<>();
-        List<Character> list2 = new ArrayList<>();
+        List<String> list1 = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
 
-        for (char c : str1.toCharArray()) {
-            if (Character.isLetter(c)) list1.add(c);
+        for (int i = 0; i < str1.length() - 1; i++) {
+            char first = str1.charAt(i);
+            char second = str1.charAt(i + 1);
+            if (first >= 'a' && first <= 'z' && second >= 'a' && second <= 'z') {
+                list1.add(String.valueOf(first) + second);
+            }
         }
-        for (char c : str2.toCharArray()) {
-            if (Character.isLetter(c)) list2.add(c);
+
+        for (int i = 0; i < str2.length() - 1; i++) {
+            char first = str2.charAt(i);
+            char second = str2.charAt(i + 1);
+            if (first >= 'a' && first <= 'z' && second >= 'a' && second <= 'z') {
+                list2.add(String.valueOf(first) + second);
+            }
         }
 
         Collections.sort(list1);
         Collections.sort(list2);
 
-        String[] arr1 = new String[list1.size() - 1];
-        String[] arr2 = new String[list2.size() - 1];
-
-        for (int i = 0; i < list1.size() - 1; i++) {
-            arr1[i] = String.valueOf(list1.get(i)) + list1.get(i + 1);
-        }
-        for (int i = 0; i < list2.size() - 1; i++) {
-            arr2[i] = String.valueOf(list2.get(i)) + list2.get(i + 1);
-        }
-
-        Map<String, Integer> map = new HashMap<>();
-
-        for (String str : arr1) {
-            map.merge(str, 1, Integer::sum);
-        }
-
         int intersection = 0;
-        int union = arr1.length;
-        for (String str : arr2) {
-            if (map.containsKey(str) && map.get(str) > 0) {
-                map.merge(str, -1, Integer::sum);
+        int union = 0;
+        for (String str : list1) {
+            if (list2.remove(str)) {
                 intersection++;
-            } else if (map.containsKey(str) && map.get(str) <= 0) union++;
-            else if (!map.containsKey(str)) union++;
+            }
+            union++;
         }
 
+        for (int i = 0; i < list2.size(); i++) union++;
+
+        if (union == 0) return MUL;
 
         return (int) (((double) intersection / (double) union) * 65536);
     }
